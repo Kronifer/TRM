@@ -19,8 +19,8 @@ def init():
             e: Nethack\n
             """)
             gameList = input("""To choose the games you want people to be able to play, please
-                        enter the letter corresponding with the games people can play in a list like so: 
-                        abc, where each character is unseparated. """)
+enter the letter corresponding with the games people can play in a list like so: 
+abc, where each character is unseparated. """)
             os.system("clear")
             kv.addData("gamelist", gameList)
             print("TRM will now install these programs. \n")
