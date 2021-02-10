@@ -3,6 +3,16 @@
 import kvJSON as kv
 import os
 
+def setpass():
+    password = input("Set your password. These are case-sensitive! ")
+    print("\n")
+    passConfirm = input("You have chosen your password to be: " + password + " . Is that okay? [y/n] ")
+    if passConfirm == 'y':
+        kv.addData("password", password)
+        kv.encryptData("password")
+    else:
+        setpass()
+
 def init():
     kv.init("data.json")
     check = kv.getData("gamelist")
@@ -40,7 +50,46 @@ abc, where each character is unseparated. """)
                     os.system("sudo apt-get update")
                     os.system("sudo apt-get install crawl")
                 else:
-                    pass
+                    os.system("sudo apt install nethack-console 3.6.1-1")
+                os.system("clear")
+                print("Games installed.\n")
+                setpass()
+                os.system("clear")
+                print("Congratulations! TRM is configured.")
+        else:
+            os.system("clear")
+            gameList = "abcde"
+            for element in gameList:
+                if element == "a":
+                    os.system("sudo apt install cataclysm-dda-curses")
+                elif element == "b":
+                    os.system("sudo apt install angband")
+                elif element == "c":
+                    os.system("wget https://github.com/DGoldDragon28/Unangband/releases/download/v.0.6.6/unangband-066-linux.tgz")
+                    os.system("tar -xzvf unangband-066-linux.tgz")
+                    os.system("cd unangband-066-linux")
+                    os.system("chmod +x unangband")
+                elif element == "d":
+                    os.system("echo 'deb https://crawl.develz.org/debian crawl 0.26' | sudo tee -a /etc/apt/sources.list")
+                    os.system("wget https://crawl.develz.org/debian/pubkey -O - | sudo apt-key add -")
+                    os.system("sudo apt-get update")
+                    os.system("sudo apt-get install crawl")
+                else:
+                    os.system("sudo apt install nethack-console 3.6.1-1")
+                password = "admin"
+                kv.addData("password", password)
+                kv.encryptData("password")
+                print("Default password is \"admin\".")
+
+    else:
+        adminPass = kv.getData("password")
+        gamelist = kv.getData("gamelist")
+        gamelistlist = []
+        for element in gamelist:
+            element += gamelistlist
+
+                    
+
                 
 
 
