@@ -38,14 +38,15 @@ abc, where each character is unseparated. """)
             elif element == "b":
                 os.system("sudo apt install angband")
             elif element == "c":
-                os.system("wget https://github.com/DGoldDragon28/Unangband/releases/download/v.0.6.6/unangband-066-linux.tgz")
-                os.system("tar -xzvf unangband-066-linux.tgz")
-                os.system("cd unangband-066-linux")
-                os.system("chmod +x unangband")
+                os.system("git clone --depth=1 https://github.com/DGoldDragon28/Unangband/")
+                os.system("cd Unangband/src")
+                os.system("sudo make -f Makefile.std install")
+                os.system("cd ..")
             elif element == "d":
                 os.system("echo 'deb https://crawl.develz.org/debian crawl 0.26' | sudo tee -a /etc/apt/sources.list")
                 os.system("wget https://crawl.develz.org/debian/pubkey -O - | sudo apt-key add -")
                 os.system("sudo apt-get update")
+                os.system("sudo apt install crawl-common=0.25.0-1")
                 os.system("sudo apt-get install crawl")
             else:
                 os.system("sudo apt install nethack-console 3.6.1-1")
