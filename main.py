@@ -18,11 +18,9 @@ def init():
     check = kv.getData("gamelist")
     if check == None:
         config = input("It seems you have not configured TRM yet. Would you like to now? If no, TRM will be autoconfigured. [y/n] ")
-        if config == "y":
-            os.system("clear")
             print("First, you need to decide what games you want users to play.\n")
             print("""Here is a list of current supported games:
-            a: Cataclysm: Dark Days Ahead,
+            a: Cataclysm: Dark Days Ahead
             b: Angband
             c: Unangband
             d: Dungeon Crawl: Stone Soup
@@ -56,30 +54,6 @@ abc, where each character is unseparated. """)
                 setpass()
                 os.system("clear")
                 print("Congratulations! TRM is configured.")
-        else:
-            os.system("clear")
-            gameList = "abcde"
-            for element in gameList:
-                if element == "a":
-                    os.system("sudo apt install cataclysm-dda-curses")
-                elif element == "b":
-                    os.system("sudo apt install angband")
-                elif element == "c":
-                    os.system("wget https://github.com/DGoldDragon28/Unangband/releases/download/v.0.6.6/unangband-066-linux.tgz")
-                    os.system("tar -xzvf unangband-066-linux.tgz")
-                    os.system("cd unangband-066-linux")
-                    os.system("chmod +x unangband")
-                elif element == "d":
-                    os.system("echo 'deb https://crawl.develz.org/debian crawl 0.26' | sudo tee -a /etc/apt/sources.list")
-                    os.system("wget https://crawl.develz.org/debian/pubkey -O - | sudo apt-key add -")
-                    os.system("sudo apt-get update")
-                    os.system("sudo apt-get install crawl")
-                else:
-                    os.system("sudo apt install nethack-console 3.6.1-1")
-                password = "admin"
-                kv.addData("password", password)
-                kv.encryptData("password")
-                print("Default password is \"admin\".")
 
     else:
         adminPass = kv.getData("password")
