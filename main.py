@@ -3,6 +3,18 @@
 import kvJSON as kv
 import os
 
+def menuscreen():
+    print("""
+    Welcome to TRM alpha!          Not logged in. Please type r to register or l to login.
+    
+    a) Play Angband                b) Play Unangband
+
+    c) Play CDDA                   d) Play Dungeon Crawl: Stone soup
+
+    e) Play Nethack                r) Register
+
+    l) Login\n""")
+
 def setpass():
     password = input("Set your password. These are case-sensitive! ")
     print("\n")
@@ -63,7 +75,10 @@ abc, where each character is unseparated. """)
         for element in gamelist:
             element += gamelistlist
 
-                    
+def main():
+    menuscreen()
+    command = input()
+    
 
                 
 
